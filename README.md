@@ -11,76 +11,6 @@ This repository contains the code for a chat system. The chat system allows user
 - Chat history: The system stores the chat history for each user.
 - Error handling: The system handles errors and displays appropriate error messages to the users.
 
-## Prerequisites
-
-Before running the code, make sure you have the following dependencies installed:
-
-- Flask
-- email_validator
-- openai
-- Flask SQLAlchemy
-- dotenv
-- BeautifulSoup
-- Gunicorn
-- Werkzeug
-
-## Configuration
-
-The application requires some configuration variables to be set. Please follow the steps below to set up the configuration:
-
-1. Create a `.env` file in the root directory of the project.
-2. Set the following environment variables in the `.env` file:
-
-   - `SECRET_KEY`: A secret key for the Flask application.
-   - `OPENAI_API_KEY`: Your OpenAI API key.
-   - `DATABASE_URL`: The URL for the database.
-
-3. Save the `.env` file.
-
-## Usage
-
-To run the application, follow the steps below:
-
-1. Install the required dependencies by running the following command:
-
-   ```
-   pip install flask email_validator openai flask_sqlalchemy python-dotenv beautifulsoup4 gunicorn Werkzeug && sudo apt-get install gunicorn
-   ```
-
-2. Clone the repository:
-
-   ```
-   git clone https://github.com/ecstra/ACS-Learning.git
-   ```
-
-3. Change the directory to the cloned repository:
-
-   ```
-   cd ACS-Learning
-   ```
-
-4. Create a `.env` file in the root directory of the project.
-
-5. Set the following environment variables in the `.env` file:
-
-   ```
-   SECRET_KEY=<your_secret_key>
-   OPENAI_API_KEY=<your_openai_api_key>
-   DATABASE_URL=<your_database_url>
-   ```
-
-   Replace `<your_secret_key>`, `<your_openai_api_key>`, and `<your_database_url>` with your own values.
-
-6. Save the `.env` file.
-
-7. Start the application using Gunicorn:
-
-   ```
-   gunicorn -w 4 -b 127.0.0.1:5000 chat_system:app
-   ```
-
-   The application will start running on `http://127.0.0.1:5000/`.
-
 ## Routes
 
 The application provides the following routes:
@@ -101,11 +31,32 @@ The application handles the following errors:
 - 500: Internal server error.
 - Other exceptions: Generic error message.
 
-## Disclaimer
+## To-Do
 
-Please note that unauthorized copying of this code is strictly prohibited. This code is proprietary and confidential.
+This is the todo for the next 1 month:
 
-If you have any questions or need further assistance, please feel free to contact us.
+- Learn the code base.
+- Learn about Gemini API.
+- Learn React and RESTApi.
+- Shift from OpenAI to Gemini 1.5 pro.
+- Implement the buttons for images, check for camera access from browser or access from files.
+- Implement Ctrl+V for pasting images from clipboard or copied images.
+- Implement drag and drop for files, including code (all types, py, cpp, c, cu, md, etc..), PDFs. 
+- AppRoute to process files either to 1.5-pro or 1.5 Vision.
+- If possible replicate real time generation (token by token).
+- React conversion of HTML and CSS.
+- Enhance the propmts, change the Chain of Thoughts to match what the Gemini API expects.
+- Try implementation of RAG for unlimited context (If possible).
 
-## License
-This project is licensed under the [Automa Proprietary License Agreement](LICENSE) license. Please see the [LICENSE](LICENSE) file for more details.
+## To-Do for Interview Bot
+
+- Implement a placeholder for QnA, make it such that if we plug in whatever is given by CDC, it should work.
+- Data augment the given questions to a dictionary that has appropriate depth (questions["sofware-engineer"]["aptitude"]).
+- Make a new tab for the question answer part (test).
+- Give them options for positions, ie, software engineer, full stack, etc.. 
+- This will have topics for technical, interview, aptitude, whatever they give in the question bank.
+- Make the bot generate whatever it seems necessary along with the questions in the database.
+- Create a front end page to display results for the applicants. Show right answer and wrong answer.
+- Add a button for more explanation that gets another response from the bot.
+- Find a way to integrate an IDE and make it accessible or make llm decide if the code is correct or not and return a score.
+- Commit to main. 
