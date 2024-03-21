@@ -1,0 +1,40 @@
+<!-- 
+Automa - Login Page
+Copyright (c) 2023, Automa
+Unauthorized copying of this file, via any medium is strictly prohibited.
+Proprietary and confidential. 
+-->
+
+<!doctype html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Login</title>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script>
+            $(document).ready(function() {
+                $('#loading').fadeOut();
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container login-container">
+            <h1>ACS-Learning</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p class=loginerror><strong>Error:</strong> {{ messages[0] }}</p>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" action="/login">
+            <div class="button-container">
+                <input type="email" name="email" required placeholder="Email" style="font-family: 'Titillium Web', sans-serif;">
+                <input type="submit" value="Login" style="font-family: 'Titillium Web', sans-serif;">
+            </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p>* If you run into any errors, please contact <a href="mailto:1nt21ec113.ravi@nmit.ac.in">1nt21ec113.ravi@nmit.ac.in</a></p>
+        </div>        
+    </body>
+</html>

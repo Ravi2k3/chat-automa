@@ -1,0 +1,47 @@
+<!-- 
+Automa - Login Page
+Copyright (c) 2023, Automa
+Unauthorized copying of this file, via any medium is strictly prohibited.
+Proprietary and confidential. 
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login</title>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='chatbot_styles.css') }}">
+        <script>
+            $(document).ready(function() {
+                $('#loading').fadeOut();
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container login-container">
+            <h1>ACS-Learning</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <p class="{{ messages[0][0] }}">{{ messages[0][1] }}</p>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" action="/login">
+            <div class="button-container">
+                <input type="email" name="email" required placeholder="Email" style="font-family: 'Titillium Web', sans-serif;">
+                <input type="password" name="password" required placeholder="Password" style="font-family: 'Titillium Web', sans-serif;">
+                <input type="submit" value="Login" style="font-family: 'Titillium Web', sans-serif;">
+            </div>
+            </form>
+            <p class="sign">Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a></p>
+        </div>
+        <div class="footer">
+            <p>* If you run into any errors, please contact <a href="mailto:founder@automa.one">founder@automa.one</a></p>
+        </div> 
+        <div class="fut hidden">
+            <img src="{{ url_for('static', filename='Automa-A.svg') }}" alt="Logo" class="fut-logo">
+            <p>2023 © All rights reserved.</p>
+        </div>       
+    </body>
+</html>

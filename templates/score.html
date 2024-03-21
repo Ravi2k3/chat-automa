@@ -1,0 +1,77 @@
+<!-- 
+Automa - Score Page
+Copyright (c) 2023, Automa
+Unauthorized copying of this file, via any medium is strictly prohibited.
+Proprietary and confidential. 
+-->
+
+<!doctype html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>Score</title>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='chatbot_styles.css') }}">
+        <script>
+            window.onload = function() {
+                var flashMessages = document.getElementById('flash-messages');
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    flashMessages.innerHTML = '<div class="{{ messages[0][0] }}">{{ messages[0][1] }}</div>';
+                    setTimeout(function() {
+                        flashMessages.classList.add('hide');
+                    }, 5000);
+                {% endif %}
+                {% endwith %}
+            }
+
+            function logout() {
+                // Fade in the goodbye screen
+                $('#goodbye-screen').fadeIn(1250, function() {
+                    // Fade in the goodbye title
+                    $('#goodbye-title').animate({opacity: 1}, 1250, function() {
+                        // After the title has faded in, fade in the email
+                        $('#goodbye-email').animate({opacity: 1}, 1250, function() {
+                            // After the email has faded in, fade out the goodbye title and email
+                            $('#goodbye-title, #goodbye-email').delay(1000).animate({opacity: 0}, 1250, function() {
+                                // After the goodbye title and email have faded out, redirect to the logout page
+                                window.location.href = "/logout";
+                            });
+                        });
+                    });
+                });
+            }
+            
+            $(document).ready(function() {
+                $('#loading').fadeOut();
+            });
+        </script>
+    <body>
+        <div id="goodbye-screen" class="welcome-screen">
+            <h1 id="goodbye-title">Goodbye</h1>
+            <p id="goodbye-email">{{ session['email'] }}</p>
+        </div>
+        <div id="flash-messages"></div>
+        <div class="score-body">
+            <h1>Your score: {{ score }}</h1>
+            <h2>Review your answers:</h2>
+            {% for quiz in quizzes %}
+                <div class="score">
+                    <h3>{{ quiz['question'] }}</h3>
+                    <p><h4>Correct answer: </h4>
+                    {{ quiz['correct_answer'] }}</p>
+                </div>
+            {% endfor %}
+            <div class="button-container column-layout">
+                <a href="/download_chat_history" class="button">Download Chat History</a>
+                <a href="#" class="button" onclick="logout()">Logout</a>
+                <form method="POST" action="/reset">
+                    <input class="reset" type="submit" value="Home" style="font-family: 'Titillium Web', sans-serif;">
+                </form>
+                <a href="/download_quizzes" class="button">Download Quizzes</a>
+            </div>
+        </div>
+     
+    </body>
+</html>

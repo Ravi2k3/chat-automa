@@ -1,0 +1,79 @@
+<!-- 
+Automa - Quiz page
+Copyright (c) 2023, Automa
+Unauthorized copying of this file, via any medium is strictly prohibited.
+Proprietary and confidential. 
+-->
+
+<!doctype html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Quiz</title>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='chatbot_styles.css') }}">
+        <script>
+            window.onload = function() {
+                var flashMessages = document.getElementById('flash-messages');
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    flashMessages.innerHTML = '<div class="{{ messages[0][0] }}">{{ messages[0][1] }}</div>';
+                    setTimeout(function() {
+                        flashMessages.classList.add('hide');
+                    }, 2000);
+                {% endif %}
+                {% endwith %}
+                $('#loading').fadeOut();
+            }
+            $(document).ready(function() {
+                $(".error").slideDown().delay(2000).fadeOut();
+                $(".success").slideDown().delay(2000).fadeOut();
+            });
+            $(document).ready(function() {
+                $('#loading').fadeOut();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="flash-messages"></div>
+        <div class="container quiz-container">
+            <h1>Quiz</h1>
+            {% if quiz %}
+            <form method="POST" action="/quiz_answer">
+                <div class="quiz">
+                    <h2>{{ quiz['question'] }}</h2>
+                    <div class="options">
+                    {% for option in quiz['options'] %}
+                        <div class="option">
+                            <input type="radio" id="{{ option }}" name="answer" value="{{ option }}">
+                            <label for="{{ option }}" style="display: block; height: 100%; width: 100%;">
+                                {{ quiz[option] }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <input type="submit" value="Submit" style="font-family: 'Titillium Web', sans-serif;">
+                </div>
+            </form>
+            {% else %}
+                <div class="no-quiz">Quiz could not be generated</div>
+            {% endif %}
+            <div class="button-container">
+                <a href="/" class="button">Back</a>
+            </div>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="{{ messages[0][0] }}">{{ messages[0][1] }}</div>
+        {% endif %}
+        {% endwith %}
+        <div id="loading" class="loading-overlay">
+            <img src="{{ url_for('static', filename='Automa.gif') }}" alt="Loading...">
+        </div>     
+        <div class="fut hidden">
+            <img src="{{ url_for('static', filename='Automa-A.svg') }}" alt="Logo" class="fut-logo">
+            <p>2023 © All rights reserved.</p>
+        </div>     
+    </body>
+</html>

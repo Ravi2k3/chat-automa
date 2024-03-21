@@ -1,0 +1,648 @@
+/* 
+Style sheet for Automa
+Copyright (c) 2023, Automa
+Unauthorized copying of this file, via any medium is strictly prohibited.
+Proprietary and confidential.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #BABECC;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9fa1b2;
+}
+
+/* To change the color of the selected text to red */
+::selection {
+    background-color: #bb2a2f;
+    color: white; /* You can set this to whatever color you want for the text */
+    box-shadow: none;
+    text-shadow: none;
+    height: 95%
+}
+
+body, html {
+  background-color: #EBECF0;
+  overflow-y: scroll;
+}
+body, p, input, select, textarea, button, textarea {
+  font-family: 'Titillium Web', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 16px;
+  line-height: 1.2;  /* Reduced line-height for less vertical spacing */
+  letter-spacing: -0.4px;  /* Reduced letter-spacing for less horizontal spacing */
+}
+
+div, p {
+  color: #9b9da3 !important;
+  text-shadow: 1px 1px 1px #FFF;
+}
+h3{
+  color: #9b9da3 !important;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: 'Titillium Web', sans-serif;
+  line-height: 1.2;  /* Reduced line-height for less vertical spacing */
+  letter-spacing: -0.4px;  /* Reduced letter-spacing for less horizontal spacing */
+}
+form {
+  padding: 16px;
+  width: 500px;
+  margin: 0 auto;
+  line-height: 1.2;  /* Reduced line-height for less vertical spacing */
+  letter-spacing: -0.4px;  /* Reduced letter-spacing for less horizontal spacing */
+}
+
+.segment {
+  padding: 32px 0;
+  text-align: center;
+}
+
+button, input, textarea {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color: #EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+}
+
+label {
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
+  color: #abaeba;
+  font-weight: medium;
+}
+
+textarea, input {
+  margin-right: 8px;
+  padding: 20px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #a39b9b;
+  border-radius: 16px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  transition: height 0.2s ease-in-out, all 0.2s ease-in-out;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  margin-bottom: 20px;
+}
+textarea{
+  vertical-align: top; /* Align text to the top */
+  resize: none; /* Disable manual resize */
+  padding-top: 16px;
+  font-size: 16px;
+  padding-bottom: 16px;
+  min-height : 90px;
+  height: auto;
+  max-height : 500px;
+  position: relative;
+  z-index: 2;
+}
+    /* For Chrome, Safari, and Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* General style if you want to also remove other browser-specific styles */
+input[type="number"] {
+appearance: textfield;
+}
+textarea.expanded {
+  white-space: pre-wrap;  /* Allow line breaks */
+  text-overflow: clip;  /* Remove ellipsis */
+}
+input:focus, textarea:focus {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+textarea:not(:focus) {
+  overflow: hidden;
+  z-index: 0;
+}
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: #BABECC;
+  border-radius: 8px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background-color: #9fa1b2;
+}
+
+textarea.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.expanded {
+  overflow: auto;
+}
+
+button {
+  color: #c62c31;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 16px !important;
+  display: block;
+  
+}
+button:hover {
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  color: #de3037;
+}
+button:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  color: #bb2a2f;
+}
+button:focus, button:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+button .icon {
+  margin-right: 8px;
+}
+button.unit {
+  border-radius: 8px;
+  line-height: 0;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8px;
+  font-size: 19.2px;
+}
+button.unit .icon {
+  margin-right: 0;
+}
+button.red {
+  display: block;
+  width: 100%;
+  color: #AE1100;
+}
+
+.input-group {
+  display: flex;
+  justify-content: flex-start;
+}
+.input-group label {
+  margin: 0;
+  flex: 1;
+}
+.logo-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: auto;
+  scale: 0.4; 
+}
+.hidden {
+display: none;
+}
+
+/* CSS Transition */
+.fade {
+opacity: 0;
+transition: opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.slide {
+opacity: 0;
+transform: translateX(100%);
+transition: opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.fade.show {
+opacity: 1;
+}
+
+.slide.show {
+opacity: 1;
+transform: translateX(0);
+}
+.small{
+height: 20px !important;
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #EBECF0;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+  border-radius: 16px;
+}
+
+.content img{
+  scale: 0.75;
+}
+
+/* Additional styles */
+.content h3 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.title-main{
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content p{
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #9b9da3 !important;
+}
+
+ul, ol {
+  padding-left: 40px;
+  list-style-position: inside;
+  color: #9b9da3 !important;
+  font-size: 18px;
+}
+
+.content button {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 24px;
+}
+.content button:hover {
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  color: #de3037;
+}
+.content button:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  color: #bb2a2f;
+}
+
+.logo-fullscreen img {
+  border-radius: 16px;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+}
+
+.footer {
+  width: 250px;  /* Increased width */
+  padding: 20px; /* Padding */
+  background-color: #EBECF0; /* Background color */
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC; /* Neumorphic shadow */
+  border-radius: 16px; /* Rounded corners */
+  position: fixed; /* Fixed position */
+  bottom: 20px; /* 20px from the bottom */
+  right: 20px; /* 20px from the right */
+  display: flex; /* Flexbox */
+  justify-content: flex-start; /* Distribute space between children */
+  align-items: center; /* Center items vertically */
+}
+
+.footer-logo {
+  height: 50px;  /* You can adjust as needed */
+  width: 50px;  /* You can adjust as needed */
+  margin-right: 10px;
+}
+
+.footer-text {
+  font-size: 24px;  /* Increased font size */
+  color: #abaeba;
+}
+
+
+.flash-message {
+  background-color: #EBECF0;
+  border-radius: 16px;  /* Based on your existing styles */
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;  /* Based on your existing styles */
+  margin: 10px auto;
+  padding: 20px;  /* Based on your existing styles */
+  text-align: center;
+  width: 320px;  /* Same as form */
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9999;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Animation */
+}
+
+.flash-message.show {
+  opacity: 1; /* Shown */
+}
+
+.flash-message p {
+  font-family: 'Titillium Web', sans-serif;
+  color: #a9acb9;  /* Based on your existing styles */
+  font-weight: bold;
+  margin: 0;
+  font-size: 16px;  /* Based on your existing styles */
+  text-shadow: 1px 1px 1px #FFF;  /* Based on your existing styles */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.thank-you-content {
+  max-width: 800px;
+  width: 800px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 40px;
+  background-color: #EBECF0;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+  border-radius: 16px;
+  text-align: center;
+  
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #EBECF0;
+}
+body, html {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.thank-you-content h3, .thank-you-content h2, .thank-you-content p {
+  font-family: 'Titillium Web', sans-serif;
+  color: #a9acb9;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
+.thank-you-content h3 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.thank-you-content h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.thank-you-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+
+/* Neumorphic list design */
+.neumorphic-list {
+  list-style: none;  /* Removing list bullet points */
+  padding: 0;  /* No padding */
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 10px;
+    /* No margin */
+}
+
+.neumorphic-item a, .neumorphic-item button {
+  text-decoration: none;  /* Removing underline from links */
+  color: #a9acb9;  /* Setting color to match the rest of the design */
+  font-family: 'Titillium Web', sans-serif;  /* Same font family as rest of the design */
+  text-shadow: 1px 1px 1px #FFF;  /* Same text shadow as rest of the design */
+  
+}
+
+.neumorphic-item {
+  background-color: #EBECF0;  /* Same background color as rest of design */
+  border-radius: 16px;  /* Same border-radius as rest of design */
+  padding: 20px;  /* Similar padding to rest of design */
+  margin: 4px;  /* Margin similar to rest of design */
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;  /* Same neumorphic shadows */
+  cursor: pointer;  /* Retaining the pointer cursor */
+  font-family: 'Titillium Web', sans-serif;  /* Same font family */
+  color: #a9acb9;  /* Same font color */
+  text-shadow: 1px 1px 1px #FFF;  /* Same text shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  word-wrap: break-word; /* Breaks the words at the end of the line */
+  overflow-wrap: break-word;
+  font-size: 18px;
+  gap: 2px;
+}
+
+
+.click a {
+  /* Normal state styles for <a> elements within .neumorphic-item */
+  color: inherit;  /* Inherits color from the parent .neumorphic-item */
+}
+
+.click:hover {
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  color: #de3037;
+}
+
+.click:hover a {
+  /* Changes color of <a> elements to red when .neumorphic-item is hovered */
+  color: #de3037;
+}
+
+.click:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  color: #bb2a2f;
+}
+
+.click:active a {
+  /* Changes color of <a> elements when .neumorphic-item is in active state */
+  color: #bb2a2f;
+}
+
+.qna-container {
+  margin-top: 20px;
+  background-color: #EBECF0;
+  border-radius: 16px;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.qna-item {
+  margin-bottom: 20px;
+}
+
+.qna-question {
+  font-weight: bold;
+  font-size: 25px;
+  color: #abaeba;
+  margin-bottom: 10px;
+}
+
+.qna-answer {
+  padding: 10px;
+  border-radius: 16px;
+  color: #abaeba;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  word-wrap: break-word;
+  max-width: 580px;
+}
+
+a.neumorphic-item {
+  text-decoration: none;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #EBECF0;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 7px 7px 14px #d1d9e6, -7px -7px 14px #ffffff;
+  align-items: center; /* Remove this */
+}
+.fixed-header h1{
+  font-size: 30px;
+  font-weight: bold;
+  color: #a9acb9;
+  margin: 0;
+  text-shadow: 1px 1px 1px #FFF;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+.search-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 95vw;
+  background-color: #EBECF0;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: 0;  /* Remove this */
+  margin-bottom: 0;  /* Remove this */
+  width: calc(100% - 50px);  /* New: Calculate width dynamically */
+}
+
+/* New styles */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.main-container {
+  margin-top: 100px;  /* Adjust based on the height of your fixed header */
+  padding-bottom: 20px;  /* Add some padding at the bottom for smoother scrolling */
+  overflow-y: auto;  /* Allows vertical scrolling */
+  position: relative;  /* Relative positioning */
+  z-index: 1;  /* Z-index to keep it below the header */
+}
+
+.fixed-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 25px;
+  padding-right: 25px;
+  z-index: 1000;  /* Ensures the header stays on top */
+}
+
+/* Media Query for Phones */
+@media only screen and (max-width: 768px) {
+  button {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  }
+  form{
+    width: 80vw;
+  }
+  .content, form{
+    padding-bottom: 90px;
+  }
+  .content{
+    margin-top: 0;
+    padding-top:0;
+  }
+  .footer {
+    display: none;
+  }
+  .neumorphic-item {
+    width: calc(100% - 50px);  /* Same calculation as for the search bar */
+    box-sizing: border-box;  /* Include padding and border in element's total width */
+}
+
+/* New: Ensure the main container is also a single column */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* New: Make the search bar and its container take full width */
+.search-container, .search-bar {
+    width: calc(100% - 50px);  /* Deducting padding */
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.search-bar {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+/* Adjust the container to remove any padding or margin */
+.search-container {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* New: Update fixed header layout for smaller screens */
+.fixed-header {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.neumorphic-item:first-child {
+  margin-top: 20px;  /* Add top margin to create a gap */
+}
+.title-main{
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+}

@@ -1,0 +1,131 @@
+<!-- 
+Automa - Home Page
+Copyright (c) 2023, Automa
+Unauthorized copying of this file, via any medium is strictly prohibited.
+Proprietary and confidential. 
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Home</title>
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='chatbot_styles.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function askQuestion() {
+                var question = document.getElementById("question").value;
+                var chatBody = document.getElementById("chat-body");
+                var newMessage = document.createElement("div");
+                var questionInput = document.getElementById("question");
+                newMessage.classList.add("message");
+                newMessage.classList.add("user");
+                newMessage.textContent = question;
+                chatBody.appendChild(newMessage);
+                questionInput.style.backgroundColor = "#ebecf0"; // Change the color of the text box
+                var askButton = document.getElementById("ask");
+                askButton.disabled = true;
+                askButton.value = "Asking..."; // change the button text
+                askButton.style.backgroundColor = "#ebecf0"; // Change the color of the button
+                chatBody.scrollTop = chatBody.scrollHeight; // Scroll to the bottom
+                $('#loading').fadeIn();
+            }
+
+            $(document).ready(function() {
+                $(".error").slideDown().delay(2000).fadeOut();
+                $(".success").slideDown().delay(2000).fadeOut();
+                var chatBody = document.getElementById("chat-body");
+                chatBody.scrollTop = chatBody.scrollHeight; // Scroll to the bottm
+                // Check if the welcome animation has been shown
+                $('.container').hide();
+                {% if 'just_logged_in' in session and session['just_logged_in'] %}
+                    // If so, show the welcome animation
+                    $('#welcome-screen').css('display', 'flex').hide().fadeIn(0, function() {
+                        $('#welcome-screen').css('display', 'flex').hide().fadeIn(1250, function() {
+                        $('#welcome-title').animate({opacity: 1}, 1250, function() {
+                            $('#welcome-email').animate({opacity: 1}, 1250, function() {
+                                $('#welcome-title, #welcome-email').delay(1000).animate({opacity: 0}, 1250, function() {
+                                    $('.container').show();
+                                    $('#welcome-screen').fadeOut(1250, function() {
+                                        // After the welcome screen has faded out, unset the 'just_logged_in' session variable
+                                        $.post('/unset_just_logged_in');
+                                    });
+                                });
+                            });
+                        });
+                    });
+                    });
+                {% else %}
+                    // If not, show the chatbox immediately
+                    $('.container').show();
+                {% endif %}
+            });
+
+            function logout() {
+                // Fade in the goodbye screen
+                $('#goodbye-screen').fadeIn(1250, function() {
+                    // Fade in the goodbye title
+                    $('#goodbye-title').animate({opacity: 1}, 1250, function() {
+                        // After the title has faded in, fade in the email
+                        $('#goodbye-email').animate({opacity: 1}, 1250, function() {
+                            // After the email has faded in, fade out the goodbye title and email
+                            $('#goodbye-title, #goodbye-email').delay(1000).animate({opacity: 0}, 1250, function() {
+                                // After the goodbye title and email have faded out, redirect to the logout page
+                                window.location.href = "/logout";
+                            });
+                        });
+                    });
+                });
+            }
+
+            $(document).ready(function() {
+                $('#loading').fadeOut();
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div id="welcome-screen" class="welcome-screen hidden">
+            <h1 id="welcome-title">Welcome</h1>
+            <p id="welcome-email">{{ session['email'] }}</p>
+        </div>
+        <div id="goodbye-screen" class="welcome-screen">
+            <h1 id="goodbye-title">Goodbye</h1>
+            <p id="goodbye-email">{{ session['email'] }}</p>
+        </div>
+        <div class="container">
+            <div class="chat-body" id="chat-body">
+                {% for message in session['conversation'] %}
+                    {% if message['role'] == 'user' %}
+                        <div class="message user">{{ message['content'] }}</div>
+                    {% elif message['role'] == 'assistant' %}
+                        <div class="message assistant">{{ message['content']|safe }}</div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <form method="POST" action="/" onsubmit="askQuestion()">
+            <div class="button-container">
+                <input type="text" id="question" name="question" placeholder="Ask a question" required style="font-family: 'Titillium Web', sans-serif;">
+                <input type="submit" id="ask" value="Ask" style="font-family: 'font-family: 'Titillium Web', sans-serif;">
+            </div>
+            </form>
+            <div class="button-container">
+                <a href="/quiz" class="button" onclick="$('#loading').fadeIn();">Take A Quiz</a>
+                <form method="POST" action="/reset">
+                    <input class = "reset" type="submit" value="Reset" style="font-family: 'Titillium Web', sans-serif;">
+                </form>               
+                <a href="#" class="button" onclick="logout()">Logout</a>
+            </div>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="{{ messages[0][0] }}">{{ messages[0][1] }}</div>
+        {% endif %}
+        {% endwith %}
+        <div id="loading" class="loading-overlay">
+            <img src="{{ url_for('static', filename='Automa.gif') }}" alt="Loading...">
+        </div>
+    </body>
+</html>
