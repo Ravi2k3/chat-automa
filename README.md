@@ -4,7 +4,7 @@ This repository contains the code for a chat system. The chat system allows user
 
 ## Features
 
-- User authentication: Users can log in using their email addresses.
+- User authentication: Users can log in using their email addresses.                                                                                                  [ ]
 - Session management: The system keeps track of the number of sessions and messages for each user.
 - AI-powered chatbot: Users can ask questions and receive answers from an AI chatbot powered by OpenAI's GPT-3.5 Turbo model.
 - Quizzes: Users can take quizzes generated based on the conversation with the chatbot.
