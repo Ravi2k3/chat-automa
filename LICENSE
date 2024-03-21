@@ -1,21 +1,35 @@
-MIT License
+# Automa Proprietary License Agreement
 
-Copyright (c) 2024 Ravi Krishna
+Copyright (c) 2023 Automa
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This license agreement ("Agreement") is between Automa and the entity or individual ("You") who is using the software contained in this package ("Software"). The Software is owned by Automa and is protected under copyright law. Any use, reproduction, distribution, or modification of the Software without the express written permission of Automa is strictly prohibited.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. License Grant: Automa grants to You a non-exclusive, non-transferable, revocable license to use the Software solely for your own internal business purposes. This license does not allow You to use the Software on any device that You do not own or control.
+
+2. Ownership: Automa retains all rights, title, and interest in and to the Software, including all intellectual property rights therein. You acknowledge that the Software is licensed, not sold to You, and that Automa retains all rights not expressly granted to You.
+
+3. Restrictions: You may not rent, lease, lend, sell, redistribute, or sublicense the Software. You may not copy, decompile, reverse-engineer, disassemble, attempt to derive the source code of, modify, or create derivative works of the Software, any updates, or any part thereof.
+
+4. Confidentiality: You agree to keep confidential all non-public information that Automa provides, whether designated as confidential or not, that should reasonably be understood to be confidential.
+
+5. Maintenance and Support: Automa is not obligated to provide any maintenance, technical or other support for the Software.
+
+6. Termination: This License is effective until terminated. You may terminate this License at any time by destroying all copies of the Software. This License will terminate immediately without notice from Automa if you fail to comply with any provision of this License. Upon termination, You must cease all use of the Software and destroy all copies.
+
+7. Governing Law: This Agreement will be governed by and construed in accordance with the laws of the jurisdiction in which Automa is located, without regard to its conflict of law provisions.
+
+8. Limitation of Liability: TO THE EXTENT NOT PROHIBITED BY LAW, IN NO EVENT SHALL AUTOMA BE LIABLE FOR PERSONAL INJURY, OR ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES WHATSOEVER, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION OR ANY OTHER COMMERCIAL DAMAGES OR LOSSES, ARISING OUT OF OR RELATED TO YOUR USE OR INABILITY TO USE THE SOFTWARE, HOWEVER CAUSED, REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, TORT OR OTHERWISE) AND EVEN IF AUTOMA HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+9. Indemnification: You agree to indemnify, defend and hold harmless Automa and its officers, directors, employees, agents, affiliates, successors and assigns from and against any and all loss, damage, liability, claim, or demand, including reasonable attorneys' fees and expenses, arising out of or related to Your use of the Software in violation of this Agreement.
+
+10. Audit Rights: Automa reserves the right, at its own expense, to audit Your use of the Software to ensure compliance with this Agreement. Any such audit will be conducted during regular business hours at Your facilities and will not unreasonably interfere with Your business activities.
+
+11. No Waiver: No failure to exercise, and no delay in exercising, on the part of Automa, any right or any power hereunder shall operate as a waiver thereof, nor shall any single or partial exercise of any right or power hereunder preclude further exercise of any other right hereunder.
+
+12. Severability: If any provision of this Agreement is illegal or unenforceable under applicable law, the remainder of the provision will be amended to achieve as closely as possible the effect of the original term and all other provisions of this Agreement will continue in full force and effect.
+
+13. Entire Agreement: This Agreement constitutes the entire agreement between the parties with respect to the Software and supersedes all prior or contemporaneous understandings regarding such subject matter. No amendment to or modification of this Agreement will be binding unless in writing and signed by Automa.
+
+Disclaimer: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

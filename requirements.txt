@@ -1,0 +1,10 @@
+Flask
+Flask-SQLAlchemy
+gunicorn
+email-validator
+openai==0.28
+python-dotenv
+beautifulsoup4
+Werkzeug
+Flask-Mail
+itsdangerous
